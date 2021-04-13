@@ -39,7 +39,7 @@ class Main extends PluginBase implements Listener {
     public function onPlayerSpawn(PlayerJoinEvent $event, PlayerRespawnEvent $event_respawn) {
         $player = $event->getPlayer();
         $player_checker = $event_respawn->getPlayer();
-        if ($player_checker->hasPlayedBefore() === false) {
+        if ($player->hasPlayedBefore() === false) {
             $randomX = rand(-300, 300);
             $randomY = rand(65, 70);
             $randomZ = rand(-300, 300);
