@@ -30,20 +30,14 @@ class Main extends PluginBase implements Listener {
     public function onPlayerRespawn(PlayerRespawnEvent $event) {
         $player = $event->getPlayer();
         if ($player->getHealth() <= 0) {
-            $randomX = rand(-300, 300);
-            $randomY = rand(65, 70);
-            $randomZ = rand(-300, 300);
-            $event->setRespawnPosition(new Position($randomX, $randomY, $randomZ));
+            $event->setRespawnPosition(new Position(rand(-300, 300), rand(65, 70), rand(-300, 300)));
         }
     }
     public function onPlayerSpawn(PlayerJoinEvent $event, PlayerRespawnEvent $event_respawn) {
         $player = $event->getPlayer();
         $player_checker = $event_respawn->getPlayer();
-        if ($player->hasPlayedBefore() === false) {
-            $randomX = rand(-300, 300);
-            $randomY = rand(65, 70);
-            $randomZ = rand(-300, 300);
-            $event_respawn->setRespawnPosition(new Position($randomX, $randomY, $randomZ));
+        if ($player_checker->hasPlayedBefore() === false) {
+            $event_respawn->setRespawnPosition(new Position(rand(-300, 300), rand(65, 70), rand(-300, 300)));
         }
     }
 }
